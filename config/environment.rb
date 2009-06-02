@@ -19,6 +19,12 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem "rspec", :lib => "spec" 
+  config.gem "rspec-rails", :lib => "spec/rails"
+  config.gem "haml"
+  config.gem "ferret"
+  config.gem "acts_as_ferret"
+  config.gem "will_paginate"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -26,7 +32,7 @@ Rails::Initializer.run do |config|
 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
-  # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
+  # config.frameworks -= [ :active_record ]
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
@@ -39,3 +45,7 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+Haml::Template.options[:attr_wrapper] = "\""
+require 'ferret'
+require 'acts_as_ferret'
+require 'will_paginate'
